@@ -9,10 +9,10 @@ defmodule SpaceAge do
   """
   @spec age_on(planet, pos_integer) :: float
   def age_on(planet, seconds) do
-    seconds / (Map.get(planets, planet) * @earth_orbital_seconds)
+    seconds / (planet_ratios[planet] * @earth_orbital_seconds)
   end
 
-  defp planets do
+  defp planet_ratios do
     %{
       :mercury => 0.2408467,
       :venus => 0.61519726,
